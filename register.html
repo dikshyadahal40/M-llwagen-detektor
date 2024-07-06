@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmelden oder Einloggen Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"],
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #64a19d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: c4dad9;
+        }
+
+        .form-container .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-container .toggle-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-container .toggle-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Einloggen</h2>
+        <form id="login-form" action="/login" method="POST">
+            <input type="text" placeholder="Benutzername" name="Benutzername" required>
+            <input type="password" placeholder="Passwort" name="Passwort" required>
+            <button type="submit">Einloggen</button>
+        </form>
+        <div class="toggle-link">
+            <a href="#" id="signup-link">Melden Sie sich an, wenn Sie neu sind</a>
+        </div>
+        <form id="signup-form" action="/signup" method="POST" style="display: none;">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Benutzername" name="new-username" required>
+            <input type="password" placeholder="Passwort" name="new-password" required>
+            <button type="submit">Anmelden</button>
+        </form>
+    </div>
+        
+    <script>
+        document.getElementById('signup-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
